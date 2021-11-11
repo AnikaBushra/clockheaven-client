@@ -1,12 +1,13 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Header from '../../Pages/Shared/Header/Header';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+    const history = useHistory()
     const { registerUser, isLoading, user, error } = useAuth();
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -22,12 +23,12 @@ const Register = () => {
             return;
         }
         // alert('hello')
-        registerUser(loginData.email, loginData.password, loginData.name)
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
     return (
-        <Box>
-            <Header></Header>
+        <Box sx={{ height: '700px' }}>
+
             <Grid>
                 <Grid sx={{ justifyContent: 'center', mt: 5 }} item xs={12} md={12}>
                     <Typography variant="h5" gutterBottom component="div">

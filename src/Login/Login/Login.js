@@ -1,13 +1,18 @@
 import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Footer from '../../Pages/Shared/Header/Footer/Footer';
 import Header from '../../Pages/Shared/Header/Header';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { user, logInUser, isLoading, error } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
+
     const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -17,12 +22,12 @@ const Login = () => {
 
     }
     const handleOnSubmit = e => {
-        logInUser(loginData.email, loginData.password)
+        logInUser(loginData.email, loginData.password, location, history)
         e.preventDefault();
     }
     return (
-        <Box>
-            <Header></Header>
+        <Box sx={{ height: '700px' }}>
+
             <Grid>
                 <Grid sx={{ justifyContent: 'center', mt: 5 }} item xs={12} md={12}>
                     <Typography variant="h5" gutterBottom component="div">

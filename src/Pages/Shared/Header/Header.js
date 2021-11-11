@@ -28,6 +28,11 @@ const Header = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         News
                     </Typography>
+                    <NavLink to="/explore">
+                        <Button sx={{
+                            color: 'white', textDecoration: 'none', p: 1, m: 1,
+                        }} color="inherit">Explore</Button>
+                    </NavLink>
                     {
                         user?.email ?
                             <Box sx={{
@@ -35,7 +40,7 @@ const Header = () => {
                                 m: 1,
                             }}>
                                 <Typography sx={{ m: 1 }} variant="subtitle1" gutterBottom>
-                                    Signed In as:{user.name}
+                                    Signed In as  :  {user.displayName}
                                 </Typography>
                                 <Button onClick={logOut} sx={{ color: 'white', textDecoration: 'none' }} color="inherit">LogOut</Button>
                             </Box>

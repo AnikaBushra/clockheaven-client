@@ -5,12 +5,16 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Login/Login/Login';
 import Register from './Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import Explore from './Pages/Explore/Explore';
+import Header from './Pages/Shared/Header/Header';
+import Footer from './Pages/Shared/Header/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
+          <Header></Header>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -24,7 +28,11 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
+            <Route path="/explore">
+              <Explore></Explore>
+            </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
