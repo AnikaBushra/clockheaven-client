@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Cards = (props) => {
-    const { name, image, description, price } = props.clock;
+    const { _id, name, image, description, price } = props.clock;
     return (
         <>
 
@@ -27,7 +27,7 @@ const Cards = (props) => {
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <NavLink style={{ textDecoration: 'none' }} to="/purchase">
+                <NavLink style={{ textDecoration: 'none' }} to={`/purchase/${_id}`}>
                     <Button variant="outlined">Purchase</Button>
                 </NavLink>
             </Card>

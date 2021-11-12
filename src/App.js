@@ -35,7 +35,7 @@ function App() {
             <Route path="/explore">
               <Explore></Explore>
             </Route>
-            <PrivateRoute path="/purchase">
+            <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>
             </PrivateRoute>
           </Switch>
