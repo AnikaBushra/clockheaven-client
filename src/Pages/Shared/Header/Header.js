@@ -28,6 +28,11 @@ const Header = () => {
                     <Typography sx={{ m: 1 }} variant="h5" component="div">
                         ClockHeaven
                     </Typography>
+                    {/* <NavLink to="/home">
+                        <Button sx={{
+                            color: 'white', textDecoration: 'none', m: 1,
+                        }} color="inherit">Home</Button>
+                    </NavLink> */}
                     <NavLink to="/explore">
                         <Button sx={{
                             color: 'white', textDecoration: 'none', m: 1,

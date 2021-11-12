@@ -8,6 +8,8 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import Explore from './Pages/Explore/Explore';
 import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Header/Footer/Footer';
+import Purchase from './Pages/Purchase/Purchase';
+import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 
 
 
@@ -33,6 +35,9 @@ function App() {
             <Route path="/explore">
               <Explore></Explore>
             </Route>
+            <PrivateRoute path="/purchase">
+              <Purchase></Purchase>
+            </PrivateRoute>
           </Switch>
           <Footer></Footer>
         </Router>

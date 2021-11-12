@@ -1,4 +1,4 @@
-import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, Grid, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
@@ -23,7 +23,8 @@ const Login = () => {
     const handleOnSubmit = e => {
         logInUser(loginData.email, loginData.password, location, history)
         e.preventDefault();
-    }
+    };
+
     return (
         <Box sx={{ height: '700px' }}>
 

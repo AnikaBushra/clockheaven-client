@@ -1,8 +1,8 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import React from 'react';
+import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
-const Cards = (props) => {
+const Clock = (props) => {
     const { name, image, description, price } = props.clock;
     return (
         <>
@@ -36,4 +36,4 @@ const Cards = (props) => {
     );
 };
 
-export default Cards;
+export default Clock;
