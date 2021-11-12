@@ -25,24 +25,25 @@ const Header = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        News
+                    <Typography sx={{ m: 1 }} variant="h5" component="div">
+                        ClockHeaven
                     </Typography>
                     <NavLink to="/explore">
                         <Button sx={{
-                            color: 'white', textDecoration: 'none', p: 1, m: 1,
+                            color: 'white', textDecoration: 'none', m: 1,
                         }} color="inherit">Explore</Button>
                     </NavLink>
                     {
                         user?.email ?
                             <Box sx={{
-                                display: 'flex', flexDirection: 'row', p: 1,
+                                display: 'flex', flexDirection: 'row',
                                 m: 1,
                             }}>
+                                <Button onClick={logOut} sx={{ color: 'white', textDecoration: 'none' }} color="inherit">LogOut</Button>
                                 <Typography sx={{ m: 1 }} variant="subtitle1" gutterBottom>
                                     Signed In as  :  {user.displayName}
                                 </Typography>
-                                <Button onClick={logOut} sx={{ color: 'white', textDecoration: 'none' }} color="inherit">LogOut</Button>
+
                             </Box>
                             :
                             <NavLink to="/login">

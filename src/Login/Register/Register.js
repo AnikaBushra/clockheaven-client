@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import Header from '../../Pages/Shared/Header/Header';
+
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
