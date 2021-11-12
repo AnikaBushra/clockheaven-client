@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Header from '../../Pages/Shared/Header/Header';
 
 
 const Login = () => {
@@ -27,7 +28,7 @@ const Login = () => {
 
     return (
         <Box sx={{ height: '700px' }}>
-
+            <Header></Header>
             <Grid>
                 <Grid sx={{ justifyContent: 'center', mt: 5 }} item xs={12} md={12}>
                     <Typography variant="h5" gutterBottom component="div">

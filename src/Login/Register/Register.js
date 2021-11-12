@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import Header from '../../Pages/Shared/Header/Header';
 
 
 const Register = () => {
@@ -14,7 +15,7 @@ const Register = () => {
         const value = e.target.value;
         const newLogInData = { ...loginData };
         newLogInData[field] = value;
-        console.log(newLogInData);
+        // console.log(newLogInData);
         setLoginData(newLogInData);
     }
     const handleOnSubmit = e => {
@@ -28,7 +29,7 @@ const Register = () => {
     }
     return (
         <Box sx={{ height: '700px' }}>
-
+            <Header></Header>
             <Grid>
                 <Grid sx={{ justifyContent: 'center', mt: 5 }} item xs={12} md={12}>
                     <Typography variant="h5" gutterBottom component="div">

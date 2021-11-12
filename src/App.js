@@ -10,6 +10,7 @@ import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Header/Footer/Footer';
 import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
+import DashBoArd from './Pages/DashBoArd/DashBoArd';
 
 
 
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header></Header>
+
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <DashBoArd></DashBoArd>
             </PrivateRoute>
           </Switch>
           <Footer></Footer>

@@ -4,11 +4,12 @@ import { Container, Grid, Typography } from '@mui/material';
 import Cards from '../Cards/Cards';
 import Banner from '../Banner/Banner';
 import ExteaPart from '../ExtraPart/ExteaPart';
+import Header from '../../Shared/Header/Header';
 
 const Home = () => {
     const [clocks, setClocks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/clocks')
+        fetch('https://safe-hollows-48990.herokuapp.com/clocks')
             .then(res => res.json())
             .then(data => {
                 setClocks(data);
@@ -18,6 +19,7 @@ const Home = () => {
 
 
         <Box sx={{ flexGrow: 1 }}>
+            <Header></Header>
             <Banner></Banner>
             <Container sx={{ mt: 1, pt: 1, mb: 1, pb: 1 }}>
                 <Typography sx={{ mt: 1, pt: 1, mb: 1, pb: 1 }} variant="h4">
