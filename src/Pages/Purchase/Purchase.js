@@ -32,7 +32,7 @@ const Purchase = () => {
         const value = e.target.value;
         const newUserData = { ...userData };
         newUserData[field] = value;
-        // console.log(newUserData);
+        console.log(newUserData);
         setUserData(newUserData);
     };
 

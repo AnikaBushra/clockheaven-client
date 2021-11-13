@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useAuth from '../../hooks/useAuth';
+import { useEffect, useState } from "react";
 
 import {
     BrowserRouter as Router,
@@ -29,7 +30,9 @@ import { Button } from '@mui/material';
 const drawerWidth = 240;
 
 function DashBoArd(props) {
-    const { logOut } = useAuth();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    const { logOut, user } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -39,21 +42,31 @@ function DashBoArd(props) {
         setMobileOpen(!mobileOpen);
     };
 
+    useEffect(() => {
+
+        fetch(`https://safe-hollows-48990.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setIsAdmin(data.admin)
+            })
+    }, [user.email])
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
-
-            <Box>
-                <NavLink to="/pay"><Button>Pay</Button></NavLink>
-                <NavLink to="/myorders"><Button >My Orders</Button></NavLink>
-                <NavLink to="/review"><Button >Review</Button></NavLink>
-                <Button onClick={logOut} >Log Out</Button>
-            </Box>
-            <Box>
+            {isAdmin ? <Box>
                 <NavLink to="/makeadmin"><Button>MakeAdmin</Button></NavLink>
                 <Button onClick={logOut} >Log Out</Button>
-            </Box>
+            </Box> :
+                <Box>
+                    <NavLink to="/pay"><Button>Pay</Button></NavLink>
+                    <NavLink to="/myorders"><Button >My Orders</Button></NavLink>
+                    <NavLink to="/review"><Button >Review</Button></NavLink>
+                    <Button onClick={logOut} >Log Out</Button>
+                </Box>}
+
+
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>

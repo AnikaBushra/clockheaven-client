@@ -19,6 +19,8 @@ const useFirebase = () => {
                 setError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                // save user to database
+                saveUser(email, name);
 
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -81,7 +83,17 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
-
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('https://safe-hollows-48990.herokuapp.com/users', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
 
     return {
         user,
