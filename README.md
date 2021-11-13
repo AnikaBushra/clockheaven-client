@@ -1,24 +1,22 @@
-# Getting Started with Create React App
+# Website Name
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+ClockHeaven
 
-In the project directory, you can run:
 
-### `yarn start`
+## LiveSite Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ [https://assignment-12-6f1cc.web.app](https://assignment-12-6f1cc.web.app)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 5 points about this website:
 
+* The Website is about ClockHeaven
+* Material UI was used in this website
+* Website was hosted in Firebase
+* One can buy clocks from this website
+* One can add review about products
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\

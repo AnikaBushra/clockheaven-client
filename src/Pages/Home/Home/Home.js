@@ -34,6 +34,7 @@ const Home = () => {
                     ))}
                 </Grid>
             </Container>
+            <Typography>Add review</Typography>
             <GetReview></GetReview>
             <ExteaPart></ExteaPart>
         </Box>

@@ -6,7 +6,6 @@ import Login from './Login/Login/Login';
 import Register from './Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import Explore from './Pages/Explore/Explore';
-import Header from './Pages/Shared/Header/Header';
 import Footer from './Pages/Shared/Header/Footer/Footer';
 import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';

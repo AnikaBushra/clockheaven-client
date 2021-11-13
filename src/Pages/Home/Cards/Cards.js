@@ -7,7 +7,7 @@ const Cards = (props) => {
     return (
         <>
 
-            <Card sx={{ height: 490, border: '1px solid grey' }}>
+            <Card sx={{ height: 500, border: '1px solid grey' }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
