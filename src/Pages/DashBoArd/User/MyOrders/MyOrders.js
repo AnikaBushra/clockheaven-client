@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     // get orders 
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`;
+        const url = `https://safe-hollows-48990.herokuapp.com/orders?email=${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -28,7 +28,7 @@ const MyOrders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure, You want to delete??');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://safe-hollows-48990.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

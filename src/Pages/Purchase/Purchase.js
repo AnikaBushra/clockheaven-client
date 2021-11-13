@@ -15,7 +15,7 @@ const Purchase = () => {
 
     // order Details 
     useEffect(() => {
-        fetch(`http://localhost:5000/clocks/${productId}`)
+        fetch(`https://safe-hollows-48990.herokuapp.com/clocks/${productId}`)
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
@@ -44,7 +44,7 @@ const Purchase = () => {
             orderId: details._id
         }
         //    sending data to the server 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://safe-hollows-48990.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
