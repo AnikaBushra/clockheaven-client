@@ -5,6 +5,7 @@ import Cards from '../Cards/Cards';
 import Banner from '../Banner/Banner';
 import ExteaPart from '../ExtraPart/ExteaPart';
 import Header from '../../Shared/Header/Header';
+import GetReview from '../GetReview/GetReview';
 
 const Home = () => {
     const [clocks, setClocks] = useState([]);
@@ -33,6 +34,7 @@ const Home = () => {
                     ))}
                 </Grid>
             </Container>
+            <GetReview></GetReview>
             <ExteaPart></ExteaPart>
         </Box>
 

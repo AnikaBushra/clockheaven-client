@@ -19,10 +19,6 @@ import useAuth from '../../hooks/useAuth';
 
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    useParams,
     useRouteMatch,
     NavLink
 } from "react-router-dom";
@@ -47,7 +43,7 @@ function DashBoArd(props) {
         <div>
             <Toolbar />
             <Divider />
-            {/* <Link to={`${url}`}><Button>Pay</Button></Link> */}
+
             <Box>
                 <NavLink to="/pay"><Button>Pay</Button></NavLink>
                 <NavLink to="/myorders"><Button >My Orders</Button></NavLink>
@@ -56,6 +52,7 @@ function DashBoArd(props) {
             </Box>
             <Box>
                 <NavLink to="/makeadmin"><Button>MakeAdmin</Button></NavLink>
+                <Button onClick={logOut} >Log Out</Button>
             </Box>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -75,7 +72,7 @@ function DashBoArd(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ display: 'flex', height: 700 }}>
             <CssBaseline />
             <AppBar
                 position="fixed"
