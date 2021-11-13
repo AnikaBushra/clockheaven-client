@@ -14,6 +14,7 @@ import DashBoArd from './Pages/DashBoArd/DashBoArd';
 import Pay from './Pages/DashBoArd/User/Pay/Pay';
 import MyOrders from './Pages/DashBoArd/User/MyOrders/MyOrders';
 import Review from './Pages/DashBoArd/User/Review/Review';
+import MakeAdmin from './Pages/DashBoArd/Admin/MakeAdmin/MakeAdmin';
 
 
 
@@ -53,6 +54,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/review">
               <Review></Review>
+            </PrivateRoute>
+            <PrivateRoute path="/makeadmin">
+              <MakeAdmin></MakeAdmin>
             </PrivateRoute>
           </Switch>
           <Footer></Footer>

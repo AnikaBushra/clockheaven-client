@@ -6,7 +6,7 @@ import Header from '../Shared/Header/Header';
 import { Box } from '@mui/system';
 
 const Purchase = () => {
-    const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState({});
 
     const { user } = useAuth();
 
@@ -15,14 +15,15 @@ const Purchase = () => {
 
     // order Details 
     useEffect(() => {
-        fetch(`https://safe-hollows-48990.herokuapp.com/clocks`)
+        fetch(`http://localhost:5000/clocks/${productId}`)
             .then(res => res.json())
             .then(data => setDetails(data));
     }, [])
 
-    const result = details.find(detail => detail._id == productId);
-    console.log(result)
-    const initialInfo = { name: user.displayName, email: user.email, phone: '' }
+
+
+    const initialInfo = { name: user.displayName, email: user.email, phone: '' };
+    // console.log(initialInfo);
     const [userData, setUserData] = useState(initialInfo);
 
     // form 
@@ -36,8 +37,27 @@ const Purchase = () => {
     };
 
     const handleOnSubmit = e => {
+        // collecting data 
+        const datas = {
+            ...userData,
+            order: details.name,
+            orderId: details._id
+        }
+        //    sending data to the server 
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(datas)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    alert('Order Submitted successfully')
+                }
+            })
 
-        alert('Order Submitted')
 
         e.preventDefault();
     }
@@ -64,18 +84,18 @@ const Purchase = () => {
                                 <CardMedia
                                     component="img"
                                     height="300"
-                                    image={result?.image}
+                                    image={details.image}
                                     alt=""
                                 />
                                 <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
-                                        {result?.name}
+                                        {details.name}
                                     </Typography>
                                     <Typography sx={{ height: 80 }} variant="body2" color="text.secondary">
-                                        {result?.description}
+                                        {details.description}
                                     </Typography>
                                     <Typography gutterBottom variant="subtitle2" component="div">
-                                        Price: {result?.price}
+                                        Price: {details.price}
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
@@ -116,7 +136,7 @@ const Purchase = () => {
                                 disabled
                                 sx={{ width: '50%', m: 1 }}
                                 id="standard-basic"
-                                label={result?.name}
+                                label={details.name}
                                 variant="standard"
                                 type="text"
                                 name="order"
@@ -125,7 +145,7 @@ const Purchase = () => {
                                 disabled
                                 sx={{ width: '50%', m: 1 }}
                                 id="standard-basic"
-                                label={`orderId:${result?._id}`}
+                                label={`orderId:${details._id}`}
                                 variant="standard"
                                 // type="password"
                                 name="orderId"

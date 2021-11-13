@@ -54,6 +54,9 @@ function DashBoArd(props) {
                 <NavLink to="/review"><Button >Review</Button></NavLink>
                 <Button onClick={logOut} >Log Out</Button>
             </Box>
+            <Box>
+                <NavLink to="/makeadmin"><Button>MakeAdmin</Button></NavLink>
+            </Box>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
