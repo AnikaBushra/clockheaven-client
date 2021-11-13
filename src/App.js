@@ -15,6 +15,8 @@ import MyOrders from './Pages/DashBoArd/User/MyOrders/MyOrders';
 import Review from './Pages/DashBoArd/User/Review/Review';
 import MakeAdmin from './Pages/DashBoArd/Admin/MakeAdmin/MakeAdmin';
 import GetReview from './Pages/Home/GetReview/GetReview';
+import ManageAllProduct from './Pages/DashBoArd/Admin/ManageAllProduct/ManageAllProduct';
+import AddaProduct from './Pages/DashBoArd/Admin/AddaProduct/AddaProduct';
 
 
 
@@ -57,6 +59,12 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/makeadmin">
               <MakeAdmin></MakeAdmin>
+            </PrivateRoute>
+            <PrivateRoute path="/manageallproducts">
+              <ManageAllProduct></ManageAllProduct>
+            </PrivateRoute>
+            <PrivateRoute path="/addaproduct">
+              <AddaProduct></AddaProduct>
             </PrivateRoute>
             <Route path="/getreview">
               <GetReview></GetReview>

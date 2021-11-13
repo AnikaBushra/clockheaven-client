@@ -57,6 +57,8 @@ function DashBoArd(props) {
             <Divider />
             {isAdmin ? <Box>
                 <NavLink to="/makeadmin"><Button>MakeAdmin</Button></NavLink>
+                <NavLink to="/addaproduct"><Button>Add a Product</Button></NavLink>
+                <NavLink to="/manageallproducts"><Button>Manage AllProduct</Button></NavLink>
                 <Button onClick={logOut} >Log Out</Button>
             </Box> :
                 <Box>
