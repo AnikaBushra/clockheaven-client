@@ -11,6 +11,9 @@ import Footer from './Pages/Shared/Header/Footer/Footer';
 import Purchase from './Pages/Purchase/Purchase';
 import PrivateRoute from './Login/PrivateRoute/PrivateRoute';
 import DashBoArd from './Pages/DashBoArd/DashBoArd';
+import Pay from './Pages/DashBoArd/User/Pay/Pay';
+import MyOrders from './Pages/DashBoArd/User/MyOrders/MyOrders';
+import Review from './Pages/DashBoArd/User/Review/Review';
 
 
 
@@ -41,6 +44,15 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/dashboard">
               <DashBoArd></DashBoArd>
+            </PrivateRoute>
+            <PrivateRoute path="/pay">
+              <Pay></Pay>
+            </PrivateRoute>
+            <PrivateRoute path="/myorders">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/review">
+              <Review></Review>
             </PrivateRoute>
           </Switch>
           <Footer></Footer>

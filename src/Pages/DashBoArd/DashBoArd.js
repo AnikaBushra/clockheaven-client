@@ -15,12 +15,29 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import useAuth from '../../hooks/useAuth';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch,
+    NavLink
+} from "react-router-dom";
+import { Button } from '@mui/material';
+
+
 
 const drawerWidth = 240;
 
 function DashBoArd(props) {
+    const { logOut } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    let { path, url } = useRouteMatch();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -30,6 +47,13 @@ function DashBoArd(props) {
         <div>
             <Toolbar />
             <Divider />
+            {/* <Link to={`${url}`}><Button>Pay</Button></Link> */}
+            <Box>
+                <NavLink to="/pay"><Button>Pay</Button></NavLink>
+                <NavLink to="/myorders"><Button >My Orders</Button></NavLink>
+                <NavLink to="/review"><Button >Review</Button></NavLink>
+                <Button onClick={logOut} >Log Out</Button>
+            </Box>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
@@ -40,17 +64,8 @@ function DashBoArd(props) {
                     </ListItem>
                 ))}
             </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+
+
         </div>
     );
 
@@ -77,8 +92,9 @@ function DashBoArd(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        DashBoard
                     </Typography>
+
                 </Toolbar>
             </AppBar>
             <Box
@@ -86,14 +102,14 @@ function DashBoArd(props) {
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+
                 <Drawer
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
+                        keepMounted: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
@@ -118,6 +134,18 @@ function DashBoArd(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
+                {/* 
+                <Switch>
+                    <Route exact path={path}>
+                        <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/:topicId`}>
+
+                    </Route>
+                </Switch> */}
+
+
+
                 <Typography paragraph>
 
                 </Typography>
@@ -130,10 +158,7 @@ function DashBoArd(props) {
 }
 
 DashBoArd.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
+
     window: PropTypes.func,
 };
 

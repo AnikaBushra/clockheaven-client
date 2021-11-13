@@ -38,12 +38,18 @@ const Header = () => {
                             color: 'white', textDecoration: 'none', m: 1,
                         }} color="inherit">Explore</Button>
                     </NavLink>
+
                     {
                         user?.email ?
                             <Box sx={{
                                 display: 'flex', flexDirection: 'row',
                                 m: 1,
                             }}>
+                                <NavLink to="/dashboard">
+                                    <Button sx={{
+                                        color: 'white', textDecoration: 'none', m: 1,
+                                    }} color="inherit">Dashboard</Button>
+                                </NavLink>
                                 <Button onClick={logOut} sx={{ color: 'white', textDecoration: 'none' }} color="inherit">LogOut</Button>
                                 <Typography sx={{ m: 1 }} variant="subtitle1" gutterBottom>
                                     Signed In as  :  {user.displayName}
