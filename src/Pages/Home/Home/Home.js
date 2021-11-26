@@ -34,7 +34,7 @@ const Home = () => {
                     ))}
                 </Grid>
             </Container>
-            <Typography variant="h4">Add review</Typography>
+            <Typography variant="h4">Add a review</Typography>
             <GetReview></GetReview>
             <ExteaPart></ExteaPart>
         </Box>
